@@ -1,0 +1,40 @@
+CREATE TABLE students (
+name VARCHAR,
+username VARCHAR(10),
+points INTEGER,
+is_current BOOLEAN,
+id SERIAL NOT NULL PRIMARY KEY 
+)
+
+INSERT INTO students (name, username, points, is_current) VALUES ('MIKE','MIKECAD','1','TRUE')
+//select all *
+SELECT * FROM students;
+
+//select specific id
+SELECT * FROM students WHERE id='5';
+
+//select form BOOLEAN-0=false 1 = true
+SELECT * FROM students WHERE is_current='1';
+
+//just point,username
+SELECT points,username FROM students;
+
+SELECT points,username FROM students WHERE points IS NOT NULL;
+
+SELECT points,username FROM students WHERE points > 20;
+
+ALTER TABLE users ADD CONSTRAINT u_username UNIQUE(username);
+ex
+ALTER TABLE customers ADD COLUMN phone VARCHAR;
+
+ALTER TABLE students ADD CONSTRAINT students_unique UNIQUE (username);
+
+//deletes all users
+DELETE from users
+
+//deletes selected
+DELETE FROM students WHERE (condition);
+
+//edit password by id
+UPDATE students SET password = '12345' WHERE id = 1;
+
